@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AsyncProgress">
+        <attr name="progressbar_radius" format="dimension"/>
+
+        <attr name="progressbar_color" format="color"/>
+
+        <attr name="progressbar_size" format="dimension"/>
+
+        <attr name="progress_text" format="string"/>
+
+        <attr name="progress_textcolor" format="color"/>
+
+        <attr name="progress_textsize" format="dimension"/>
+
+    </declare-styleable>
+</resources>

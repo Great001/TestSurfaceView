@@ -6,7 +6,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AsyncProgressView mAsyncProgressView;
+    private AsyncProgress mAsyncProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
