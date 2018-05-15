@@ -62,6 +62,7 @@ public class AsyncProgress extends SurfaceView implements SurfaceHolder.Callback
 
     public AsyncProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        //设置了这个之后，即使设置了背景，也不可见，如果没设的话，背景会显示在Surface的上面
         setZOrderOnTop(true);
         mSurfaceHolder = getHolder();
         mSurfaceHolder.addCallback(this);
