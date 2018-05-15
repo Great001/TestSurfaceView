@@ -4,7 +4,8 @@
     xmlns:myapp="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#ff0000"
+    >
 
     <com.example.hancher.testsurfaceview.AsyncProgress
         android:id="@+id/async_progress"
@@ -16,6 +17,29 @@
         myapp:progressbar_color="@color/white"
         myapp:progressbar_radius="40dp"
         myapp:progressbar_size="4dp"
+        android:background="#30ff0000"
+        android:layout_marginBottom="50dp"
         />
+
+    <TextView
+        android:id="@+id/above_surface"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="above surface"
+        android:textColor="#ff0000"/>
+
+    <TextView
+        android:id="@+id/align_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="TEST"
+        android:textColor="#ff0000"
+        android:textSize="20sp"/>
 
 </RelativeLayout>

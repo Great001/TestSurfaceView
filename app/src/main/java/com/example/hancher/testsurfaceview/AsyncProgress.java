@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.RectF;
 import android.text.TextPaint;
@@ -61,11 +62,14 @@ public class AsyncProgress extends SurfaceView implements SurfaceHolder.Callback
 
     public AsyncProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setZOrderOnTop(true);
         mSurfaceHolder = getHolder();
         mSurfaceHolder.addCallback(this);
+        mSurfaceHolder.setFormat(PixelFormat.TRANSLUCENT);
         initAttribute(context, attrs);
         initPaint();
     }
+
 
     private void initAttribute(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AsyncProgress);
