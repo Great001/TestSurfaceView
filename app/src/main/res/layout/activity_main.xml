@@ -2,24 +2,33 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff0000"
     >
 
-    <com.example.hancher.testsurfaceview.AsyncProgress
-        android:id="@+id/async_progress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        myapp:progress_text="Loading"
-        myapp:progress_textcolor="@color/white"
-        myapp:progress_textsize="20sp"
-        myapp:progressbar_color="@color/white"
-        myapp:progressbar_radius="40dp"
-        myapp:progressbar_size="4dp"
-        android:background="#80ff0000"
-        android:layout_marginBottom="50dp"
-        />
+    <FrameLayout
+        android:id="@+id/surface_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <com.example.hancher.testsurfaceview.AsyncProgress
+            android:id="@+id/async_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:background="#80ff0000"
+            myapp:progress_text="Loading"
+            myapp:progress_textcolor="@color/white"
+            myapp:progress_textsize="20sp"
+            myapp:progressbar_color="@color/white"
+            myapp:progressbar_radius="40dp"
+            myapp:progressbar_size="4dp"
+            />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/above_surface"
@@ -31,15 +40,33 @@
         android:text="above surface"
         android:textColor="#ff0000"/>
 
-    <TextView
-        android:id="@+id/align_bottom"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
-        android:gravity="center"
-        android:text="TEST"
-        android:textColor="#ff0000"
-        android:textSize="20sp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SHOW"
+            android:textColor="#ff0000"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_hide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="HIDE"
+            android:textColor="#ff0000"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

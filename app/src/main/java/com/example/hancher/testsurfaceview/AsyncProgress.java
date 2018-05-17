@@ -119,7 +119,10 @@ public class AsyncProgress extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder) {
         Log.d("hancher", "Surface Created");
         mStop = false;
-        getDrawThread().start();
+        if (!getDrawThread().isAlive()) {
+            getDrawThread().start();
+            Log.d("hancher", mDrawThread.toString() + " " + "onSurfaceCreated call start...");
+        }
     }
 
     @Override
@@ -146,9 +149,12 @@ public class AsyncProgress extends SurfaceView implements SurfaceHolder.Callback
     /**
      * 显示
      */
-    public void show() {
+    public void showAndStart() {
         setVisibility(VISIBLE);
-        getDrawThread().start();
+        if (!getDrawThread().isAlive()) {
+            Log.d("hancher", mDrawThread.toString() + " " + "call start...");
+            getDrawThread().start();
+        }
     }
 
     /**
@@ -180,10 +186,12 @@ public class AsyncProgress extends SurfaceView implements SurfaceHolder.Callback
                 Canvas canvas = null;
                 try {
                     canvas = mSurfaceHolder.lockCanvas();
-                    //清除画面
-                    canvas.drawColor(getResources().getColor(R.color.trans), PorterDuff.Mode.CLEAR);
-                    drawProgressBarAndText(canvas);
-                    mSurfaceHolder.unlockCanvasAndPost(canvas);
+                    if (canvas != null) {
+                        //清除画面
+                        canvas.drawColor(getResources().getColor(R.color.trans), PorterDuff.Mode.CLEAR);
+                        drawProgressBarAndText(canvas);
+                        mSurfaceHolder.unlockCanvasAndPost(canvas);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
